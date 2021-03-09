@@ -23,9 +23,7 @@
         <logback.version>1.2.3</logback.version>
 		<postgresql.version>42.2.5</postgresql.version>
 <!--		<javax.servlet-api.version>4.0.1</javax.servlet-api.version>-->
-
     </properties>
-
 	<dependencies>
         <dependency>
             <groupId>javax.annotation</groupId>
@@ -54,7 +52,22 @@
 			<artifactId>postgresql</artifactId>
 		</dependency>
 
-<!--		<dependency>-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-rest</artifactId>
+		</dependency>
+
+		<!--		<dependency>-->
 <!--			<groupId>javax.servlet</groupId>-->
 <!--			<artifactId>javax.servlet-api</artifactId>-->
 <!--			<scope>provided</scope>-->
