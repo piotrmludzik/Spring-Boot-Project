@@ -20,8 +20,5 @@ public class SongController {
         var songs = (List<Song>) service.findAll();
         model.addAttribute("songs", songs); // przekazanie zmiennej z piosenkami do Thymeleaf
         return "songs";
-
-
     }
-
 }

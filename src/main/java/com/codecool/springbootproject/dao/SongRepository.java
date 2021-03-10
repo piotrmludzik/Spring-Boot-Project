@@ -2,13 +2,8 @@ package com.codecool.springbootproject.dao;
 
 import com.codecool.springbootproject.model.Song;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.rest.core.annotation.RepositoryRestResource;
-import java.util.List;
+import org.springframework.stereotype.Repository;
 
-@RepositoryRestResource
+@Repository
 public interface SongRepository extends CrudRepository<Song, Integer>{
-
-    List<Song> findById(long id);
-    void deleteById(long id);
-
 }
