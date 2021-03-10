@@ -10,17 +10,17 @@
 <body>
     <h2>List of songs</h2>
 
-    <table class="table" >
+    <table class="table table-striped table-bordered table-hover" >
         <tr>
             <th scope="row">Id</th>
-            <th scope="row">Name</th>
+            <th scope="row"  style="width:30%">Name</th>
             <th scope="row">Date</th>
             <th scope="row">Duration</th>
         </tr>
 
         <tr th:each="song : ${songs}">
-            <td th:text="${song.id}">Id</td>
-            <td th:text="${song.name}">Name</td>
+            <td th:text="${song.id}" >Name</td>
+            <td th:text="${song.name}" >Name</td>
             <td th:text="${song.date}">Date</td>
             <td th:text="${song.duration}">Duration</td>
         </tr>
