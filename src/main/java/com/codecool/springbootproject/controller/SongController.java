@@ -15,7 +15,7 @@ public class SongController {
     @Autowired
     private ISongService service;
 
-    @GetMapping("/songs/")
+    @GetMapping("/songs")
     public String findAllSongs(Model model) {
         var songs = (List<Song>) service.findAll();
         model.addAttribute("songs", songs); // przekazanie zmiennej z piosenkami do Thymeleaf
