@@ -22,8 +22,8 @@ public class SpringbootprojectApplication {
 		return (args)->{
 			log.info("Song found by id #1000");
 			log.info(songRepository.findById(1000).toString());
-			log.info("Save initialized");
-			songRepository.save(new Song("blabla", Date.valueOf("1974-05-03") , 11.72));
+//			log.info("Save initialized");
+//			songRepository.save(new Song("blabla", Date.valueOf("1974-05-03") , 11.72));
 //			log.info("Deleted by id 1000");
 //			artistDao.deleteById(1001);
 //			log.info("Song found by id #1000");

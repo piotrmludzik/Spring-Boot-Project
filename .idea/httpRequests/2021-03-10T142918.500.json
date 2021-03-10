@@ -1,0 +1,7 @@
+{
+  "timestamp": "2021-03-10T13:29:18.790+00:00",
+  "status": 500,
+  "error": "Internal Server Error",
+  "message": "",
+  "path": "/all-songs/"
+}
