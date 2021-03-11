@@ -3,10 +3,7 @@ package com.codecool.springbootproject.model;
 import lombok.Data;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Date;
 
 @Data
@@ -16,7 +13,7 @@ public class Song {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  private long id;
+  private int id;
   private String name;
   private java.sql.Date date;
   private double duration;

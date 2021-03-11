@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 public class SongController {
@@ -24,4 +23,11 @@ public class SongController {
         return "songs";
     }
 
+    @GetMapping("/delete/{id}")
+    public String deleteSongById(@PathVariable("id") int id, Model model) {
+        var song = service.getSongById(id);
+        model.addAttribute("song", song);
+        service.deleteSongById(id);
+        return "delete";
+    }
 }

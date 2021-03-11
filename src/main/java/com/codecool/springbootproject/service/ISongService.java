@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.Optional;
 
 public interface ISongService {
+
     List<Song> findAll();
-
     Optional<Song> getSongById(int id);
-
+    void deleteSongById(int id);
 }

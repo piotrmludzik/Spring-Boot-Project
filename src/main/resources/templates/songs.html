@@ -16,6 +16,7 @@
             <th scope="row"  style="width:30%">Name</th>
             <th scope="row">Date</th>
             <th scope="row">Duration</th>
+            <th scope="row"></th>
         </tr>
 
         <tr th:each="song : ${songs}">
@@ -23,6 +24,7 @@
             <td th:text="${song.name}" >Name</td>
             <td th:text="${song.date}">Date</td>
             <td th:text="${song.duration}">Duration</td>
+            <td><a th:href="@{'delete/' + ${song.id}}"><i class="bi bi-trash">x</i></a></td>
         </tr>
     </table>
 

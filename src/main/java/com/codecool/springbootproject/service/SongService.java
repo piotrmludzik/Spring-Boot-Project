@@ -26,4 +26,9 @@ public class SongService implements ISongService {
     public Optional<Song> getSongById(int id) {
         return songRepository.findById(id);
     }
+
+    @Override
+    public void deleteSongById(int id) {
+        songRepository.deleteById(id);
+    }
 }
