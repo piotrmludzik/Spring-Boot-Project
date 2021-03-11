@@ -9,6 +9,7 @@
 </head>
 <body>
     <h2>List of songs</h2>
+    <button type="button" class="btn btn-light"><a href="addSong">add a song</a></button>
 
     <table class="table table-striped table-bordered table-hover" >
         <tr>
@@ -16,7 +17,7 @@
             <th scope="row"  style="width:30%">Name</th>
             <th scope="row">Date</th>
             <th scope="row">Duration</th>
-            <th scope="row"></th>
+            <th scope="row">Delete</th>
         </tr>
 
         <tr th:each="song : ${songs}">

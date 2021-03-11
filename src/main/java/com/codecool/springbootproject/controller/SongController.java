@@ -21,8 +21,8 @@ public class SongController {
     @GetMapping("/songs")
     public String findAllSongs(Model model) {
         var songs = (List<Song>) service.findAll();
-        model.addAttribute("songs", songs); // przekazanie zmiennej z piosenkami do Thymeleaf
-        log.info("findAllSongs");
+        model.addAttribute("songs", songs);
+        log.info("findAllSongs called");
         return "songs";
     }
 
@@ -31,7 +31,12 @@ public class SongController {
         var song = service.getSongById(id);
         model.addAttribute("song", song.get().getName());
         service.deleteSongById(id);
-        log.info("deleteSongById " + id);
+        log.info("deleteSongById " + id + " called");
         return "delete";
+    }
+
+    @GetMapping("/addSong")
+    public String addSong() {
+        return "addSong";
     }
 }

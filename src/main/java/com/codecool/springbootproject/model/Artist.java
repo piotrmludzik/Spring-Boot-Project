@@ -3,10 +3,8 @@ package com.codecool.springbootproject.model;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -18,6 +16,9 @@ public class Artist {
     private int id;
     private String name;
     private String description;
+
+    @OneToMany(mappedBy="artist", cascade= CascadeType.ALL, orphanRemoval=true)
+    private Set<SongArtist> songArtist;
 
     public Artist(String name, String description) {
         this.name = name;
