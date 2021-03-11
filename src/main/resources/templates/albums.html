@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <title>AllAlbums</title>
+</head>
+<body>
+<h2>List of albums</h2>
+<button type="button" class="btn btn-light"><a href="addAlbum">add aan album</a></button>
+
+<table class="table table-striped table-bordered table-hover" >
+    <tr>
+        <th scope="row">Id</th>
+        <th scope="row"  style="width:30%">Name</th>
+        <th scope="row">Description</th>
+        <th scope="row">Delete</th>
+    </tr>
+
+    <tr th:each="album: ${albums}">
+        <td th:text="${album.id}" >Id</td>
+        <td th:text="${album.name}" >Name</td>
+        <td th:text="${album.description}">Description</td>
+        <td><a th:href="@{'deleteAlbum/' + ${album.id}}"><i class="glyphicon glyphicon-trash"></i></a></td>
+    </tr>
+</table>
+
+</body>
+</html>

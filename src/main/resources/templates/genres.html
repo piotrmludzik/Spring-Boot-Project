@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <title>AllGenres</title>
+</head>
+<body>
+<h2>List of genres</h2>
+<button type="button" class="btn btn-light"><a href="addGenre">add a genre</a></button>
+
+<table class="table table-striped table-bordered table-hover" >
+    <tr>
+        <th scope="row">Id</th>
+        <th scope="row"  style="width:30%">Name</th>
+        <th scope="row">Delete</th>
+    </tr>
+
+    <tr th:each="genre: ${genres}">
+        <td th:text="${genre.id}" >Name</td>
+        <td th:text="${genre.name}" >Name</td>
+        <td><a th:href="@{'deleteGenre/' + ${genre.id}}"><i class="glyphicon glyphicon-trash"></i></a></td>
+    </tr>
+</table>
+
+</body>
+</html>

@@ -1,4 +1,4 @@
-package com.codecool.springbootproject.dao;
+package com.codecool.springbootproject.repository;
 
 import com.codecool.springbootproject.model.Song;
 import org.springframework.data.repository.CrudRepository;

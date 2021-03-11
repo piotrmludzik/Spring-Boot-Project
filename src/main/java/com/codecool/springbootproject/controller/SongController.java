@@ -1,7 +1,7 @@
 package com.codecool.springbootproject.controller;
 
 import com.codecool.springbootproject.model.Song;
-import com.codecool.springbootproject.service.ISongService;
+import com.codecool.springbootproject.service.SongService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,13 +16,14 @@ import java.util.List;
 public class SongController {
 
     @Autowired
-    private ISongService service;
+    private SongService service;
 
     @GetMapping("/songs")
     public String findAllSongs(Model model) {
-        var songs = (List<Song>) service.findAll();
+        var songs = (List<Song>) service.findAllSongs();
         model.addAttribute("songs", songs);
         log.info("findAllSongs called");
+
         return "songs";
     }
 
@@ -32,11 +33,13 @@ public class SongController {
         model.addAttribute("song", song.get().getName());
         service.deleteSongById(id);
         log.info("deleteSongById " + id + " called");
-        return "delete";
+
+        return "deleteSong";
     }
 
     @GetMapping("/addSong")
     public String addSong() {
+
         return "addSong";
     }
 }

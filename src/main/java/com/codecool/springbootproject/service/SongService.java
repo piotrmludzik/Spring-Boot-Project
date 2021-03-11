@@ -1,33 +1,13 @@
 package com.codecool.springbootproject.service;
 
-import com.codecool.springbootproject.dao.SongRepository;
 import com.codecool.springbootproject.model.Song;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
-@Slf4j
-@Service
-public class SongService implements ISongService {
+public interface SongService {
 
-    @Autowired
-    private SongRepository songRepository;
-
-    @Override
-    public List<Song> findAll() {
-        return (List<Song>) songRepository.findAll();
-    }
-
-    @Override
-    public Optional<Song> getSongById(int id) {
-        return songRepository.findById(id);
-    }
-
-    @Override
-    public void deleteSongById(int id) {
-        songRepository.deleteById(id);
-    }
+    List<Song> findAllSongs();
+    Optional<Song> getSongById(int id);
+    void deleteSongById(int id);
 }
