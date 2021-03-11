@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SpringBootProjectApp {
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootProjectApp.class, args);
-		log.info("start the app");
+		log.info("starting the app");
 	}
 
 }

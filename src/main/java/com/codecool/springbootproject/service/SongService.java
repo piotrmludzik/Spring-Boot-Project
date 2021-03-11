@@ -18,8 +18,7 @@ public class SongService implements ISongService {
 
     @Override
     public List<Song> findAll() {
-        var songs = (List<Song>) songRepository.findAll();
-        return songs;
+        return (List<Song>) songRepository.findAll();
     }
 
     @Override

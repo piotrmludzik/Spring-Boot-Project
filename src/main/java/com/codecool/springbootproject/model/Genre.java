@@ -1,13 +1,15 @@
 package com.codecool.springbootproject.model;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Data
+@Getter
+@Setter
 @Entity
 public class Genre {
 
@@ -15,9 +17,6 @@ public class Genre {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String name;
-
-//    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-//    private Set<Song> song;
 
     public Genre(String name) {
         this.name = name;

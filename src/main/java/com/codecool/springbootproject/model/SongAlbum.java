@@ -1,11 +1,13 @@
 package com.codecool.springbootproject.model;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
-@Data
+@Getter
+@Setter
 @Table(name="song_album")
 public class SongAlbum {
 
@@ -29,5 +31,4 @@ public class SongAlbum {
 
     public SongAlbum() {
     }
-
 }
