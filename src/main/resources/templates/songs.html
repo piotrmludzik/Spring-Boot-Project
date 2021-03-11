@@ -25,7 +25,7 @@
             <td th:text="${song.name}" >Name</td>
             <td th:text="${song.date}">Date</td>
             <td th:text="${song.duration}">Duration</td>
-            <td><a th:href="@{'delete/' + ${song.id}}"><i class="bi bi-trash">x</i></a></td>
+            <td><a th:href="@{'delete/' + ${song.id}}"><i class="glyphicon glyphicon-trash"></i></a></td>
         </tr>
     </table>
 
