@@ -14,8 +14,12 @@ import java.util.Optional;
 @Service
 public class AlbumServiceImpl implements AlbumService {
 
+    AlbumRepository albumRepository;
+
     @Autowired
-    private AlbumRepository albumRepository;
+    public AlbumServiceImpl(AlbumRepository albumRepository) {
+        this.albumRepository = albumRepository;
+    }
 
     @Override
     public List<Album> findAllAlbums() {

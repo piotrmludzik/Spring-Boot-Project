@@ -14,8 +14,12 @@ import java.util.Optional;
 @Service
 public class ArtistServiceImpl implements ArtistService {
 
+    ArtistRepository artistRepository;
+
     @Autowired
-    private ArtistRepository artistRepository;
+    public ArtistServiceImpl(ArtistRepository artistRepository) {
+        this.artistRepository = artistRepository;
+    }
 
     @Override
     public List<Artist> findAllArtists() {
