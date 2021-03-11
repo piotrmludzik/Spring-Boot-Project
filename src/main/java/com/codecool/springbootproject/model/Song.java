@@ -1,33 +1,39 @@
 package com.codecool.springbootproject.model;
 
-import lombok.Data;
-import lombok.ToString;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.time.LocalDate;
+import java.util.Set;
 
-@Data
+@Getter
+@Setter
 @Entity
-@ToString
 public class Song {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private int id;
   private String name;
-  private java.sql.Date date;
+  private LocalDate date;
   private double duration;
 
+  @OneToMany(mappedBy="song", cascade=CascadeType.ALL, orphanRemoval=true)
+  private Set<SongGenre> songGenre;
 
-  public Song(String name, Date date, double duration) {
+  @OneToMany(mappedBy="song", cascade=CascadeType.ALL, orphanRemoval=true)
+  private Set<SongArtist> songArtist;
+
+  @OneToMany(mappedBy="song", cascade=CascadeType.ALL, orphanRemoval=true)
+  private Set<SongAlbum> songAlbum;
+
+  public Song(String name, LocalDate date, double duration) {
     this.name = name;
     this.date = date;
     this.duration = duration;
   }
 
   public Song(){
-
   }
-
-
 }
