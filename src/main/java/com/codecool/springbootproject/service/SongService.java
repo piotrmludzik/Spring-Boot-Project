@@ -10,4 +10,6 @@ public interface SongService {
     List<Song> findAllSongs();
     Optional<Song> getSongById(int id);
     void deleteSongById(int id);
+    void addNewSong(Song song);
+    long getSongCount();
 }

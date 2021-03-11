@@ -10,4 +10,5 @@ public interface ArtistService {
     List<Artist> findAllArtists();
     Optional<Artist> getArtistById(int id);
     void deleteArtistById(int id);
+    long getArtistCount();
 }

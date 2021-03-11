@@ -20,7 +20,9 @@ public class ArtistController {
 
     @GetMapping("/artists")
     public String findAllSongs(Model model) {
+        var artistCount = artistService.getArtistCount();
         var artists = (List<Artist>) artistService.findAllArtists();
+        model.addAttribute("count", artistCount);
         model.addAttribute("artists", artists);
         log.info("findAllArtists called");
 

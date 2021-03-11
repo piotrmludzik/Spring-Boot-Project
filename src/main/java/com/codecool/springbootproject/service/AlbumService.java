@@ -10,4 +10,5 @@ public interface AlbumService {
     List<Album> findAllAlbums();
     Optional<Album> getAlbumById(int id);
     void deleteAlbumById(int id);
+    long getAlbumCount();
 }

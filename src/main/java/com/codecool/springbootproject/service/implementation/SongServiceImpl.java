@@ -31,4 +31,14 @@ public class SongServiceImpl implements SongService {
     public void deleteSongById(int id) {
         songRepository.deleteById(id);
     }
+
+    @Override
+    public void addNewSong(Song song) {
+        songRepository.save(song);
+    }
+
+    @Override
+    public long getSongCount() {
+        return songRepository.count();
+    }
 }

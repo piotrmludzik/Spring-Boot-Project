@@ -10,4 +10,5 @@ public interface GenreService {
     List<Genre> findAllGenres();
     Optional<Genre> getGenreById(int id);
     void deleteGenreById(int id);
+    long getGenreCount();
 }

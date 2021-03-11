@@ -31,4 +31,9 @@ public class GenreServiceImpl implements GenreService {
     public void deleteGenreById(int id) {
         genreRepository.deleteById(id);
     }
+
+    @Override
+    public long getGenreCount() {
+        return genreRepository.count();
+    }
 }

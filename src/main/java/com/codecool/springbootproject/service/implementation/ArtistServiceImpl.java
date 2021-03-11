@@ -31,4 +31,9 @@ public class ArtistServiceImpl implements ArtistService {
     public void deleteArtistById(int id) {
         artistRepository.deleteById(id);
     }
+
+    @Override
+    public long getArtistCount() {
+        return artistRepository.count();
+    }
 }

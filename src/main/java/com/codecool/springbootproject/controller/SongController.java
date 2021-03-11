@@ -21,6 +21,8 @@ public class SongController {
     @GetMapping("/songs")
     public String findAllSongs(Model model) {
         var songs = (List<Song>) service.findAllSongs();
+        var songCount = songs.size();
+        model.addAttribute("count", songCount);
         model.addAttribute("songs", songs);
         log.info("findAllSongs called");
 
@@ -37,9 +39,9 @@ public class SongController {
         return "deleteSong";
     }
 
-    @GetMapping("/addSong")
-    public String addSong() {
-
-        return "addSong";
+    @GetMapping("/addSongForm")
+    public String addSongForm() {
+        return "addSongForm";
     }
+
 }

@@ -20,7 +20,9 @@ public class AlbumController {
 
     @GetMapping("/albums")
     public String findAllAlbums(Model model) {
+        var albumCount = service.getAlbumCount();
         var albums = (List<Album>) service.findAllAlbums();
+        model.addAttribute("count",albumCount);
         model.addAttribute("albums", albums);
         log.info("findAllAlbums called");
 

@@ -20,7 +20,9 @@ public class GenreController {
 
     @GetMapping("/genres")
     public String findAllGenres(Model model) {
+        var genreCount = genreService.getGenreCount();
         var genres = (List<Genre>) genreService.findAllGenres();
+        model.addAttribute("count", genreCount);
         model.addAttribute("genres", genres);
         log.info("findAllGenres called");
 
