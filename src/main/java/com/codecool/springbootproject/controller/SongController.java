@@ -2,6 +2,7 @@ package com.codecool.springbootproject.controller;
 
 import com.codecool.springbootproject.model.Song;
 import com.codecool.springbootproject.service.ISongService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
+@Slf4j
 @Controller
 public class SongController {
 
@@ -20,14 +22,16 @@ public class SongController {
     public String findAllSongs(Model model) {
         var songs = (List<Song>) service.findAll();
         model.addAttribute("songs", songs); // przekazanie zmiennej z piosenkami do Thymeleaf
+        log.info("findAllSongs");
         return "songs";
     }
 
     @GetMapping("/delete/{id}")
     public String deleteSongById(@PathVariable("id") int id, Model model) {
         var song = service.getSongById(id);
-        model.addAttribute("song", song);
+        model.addAttribute("song", song.get().getName());
         service.deleteSongById(id);
+        log.info("deleteSongById " + id);
         return "delete";
     }
 }
