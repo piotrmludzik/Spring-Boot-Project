@@ -15,8 +15,12 @@ import java.util.List;
 @Controller
 public class GenreController {
 
+    GenreService genreService;
+
     @Autowired
-    private GenreService genreService;
+    public GenreController(GenreService genreService) {
+        this.genreService = genreService;
+    }
 
     @GetMapping("/genres")
     public String findAllGenres(Model model) {

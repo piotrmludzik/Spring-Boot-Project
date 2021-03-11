@@ -15,8 +15,12 @@ import java.util.List;
 @Controller
 public class ArtistController {
 
+    ArtistService artistService;
+
     @Autowired
-    private ArtistService artistService;
+    public ArtistController(ArtistService artistService) {
+        this.artistService = artistService;
+    }
 
     @GetMapping("/artists")
     public String findAllSongs(Model model) {

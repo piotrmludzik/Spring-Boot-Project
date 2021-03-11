@@ -14,8 +14,12 @@ import java.util.Optional;
 @Service
 public class SongServiceImpl implements SongService {
 
+    SongRepository songRepository;
+
     @Autowired
-    private SongRepository songRepository;
+    public SongServiceImpl(SongRepository songRepository) {
+        this.songRepository = songRepository;
+    }
 
     @Override
     public List<Song> findAllSongs() {

@@ -15,8 +15,12 @@ import java.util.List;
 @Controller
 public class SongController {
 
+    SongService service;
+
     @Autowired
-    private SongService service;
+    public SongController(SongService service) {
+        this.service = service;
+    }
 
     @GetMapping("/songs")
     public String findAllSongs(Model model) {

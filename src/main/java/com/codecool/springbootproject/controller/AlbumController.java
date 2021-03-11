@@ -15,8 +15,12 @@ import java.util.List;
 @Controller
 public class AlbumController {
 
+    AlbumService service;
+
     @Autowired
-    private AlbumService service;
+    public AlbumController(AlbumService service) {
+        this.service = service;
+    }
 
     @GetMapping("/albums")
     public String findAllAlbums(Model model) {
