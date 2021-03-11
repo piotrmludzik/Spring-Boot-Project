@@ -12,8 +12,8 @@ import javax.persistence.*;
 public class SongAlbum {
 
     @Id
-    @Column(name="id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id", updatable=false, nullable=false)
     private int id;
 
     @ManyToOne

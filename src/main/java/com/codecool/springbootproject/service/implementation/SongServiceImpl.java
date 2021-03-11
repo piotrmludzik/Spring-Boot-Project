@@ -38,6 +38,7 @@ public class SongServiceImpl implements SongService {
 
     @Override
     public void addNewSong(Song song) {
+        log.info("addNewSong called");
         songRepository.save(song);
     }
 

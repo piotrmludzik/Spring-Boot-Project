@@ -6,9 +6,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
+import javax.validation.Valid;
+import java.sql.SQLException;
 import java.util.List;
 
 @Slf4j
@@ -43,9 +46,25 @@ public class SongController {
         return "deleteSong";
     }
 
-    @GetMapping("/addSongForm")
-    public String addSongForm() {
-        return "addSongForm";
+    @RequestMapping("/addSongForm")
+    public ModelAndView addSongForm() {
+        return new ModelAndView("addSongForm", "song", new Song());
+    }
+
+    @RequestMapping(value="/addSongForm", method=RequestMethod.POST)
+    public String handleSongForm(@Valid @ModelAttribute ("song") Song song, BindingResult bindingResult) throws SQLException {
+        log.info("handleSongForm called");
+//        if(bindingResult.hasErrors()){
+//            log.info("inside bindingResult.hasErrors()");
+//            return "addSongForm";
+//        }
+        log.info("id {}", song.getId());
+        log.info("name {}", song.getName());
+        log.info("date {}", song.getDate());
+        log.info("duration {}", song.getDuration());
+        service.addNewSong(song);
+        log.info("song " + song.getName() + " added. It has an id " + song.getId());
+        return "songs";
     }
 
 }

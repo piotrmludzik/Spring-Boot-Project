@@ -13,10 +13,17 @@ import java.util.Set;
 public class Song {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name="id", updatable=false, nullable=false)
   private int id;
+
+  @Column(name="name")
   private String name;
+
+  @Column(name="date")
   private LocalDate date;
+
+  @Column(name="duration")
   private double duration;
 
   @OneToMany(mappedBy="song", cascade=CascadeType.ALL, orphanRemoval=true)

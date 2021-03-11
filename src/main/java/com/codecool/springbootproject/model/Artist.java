@@ -12,9 +12,14 @@ import java.util.Set;
 public class Artist {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id", updatable=false, nullable=false)
     private int id;
+
+    @Column(name="name")
     private String name;
+
+    @Column(name="description")
     private String description;
 
     @OneToMany(mappedBy="artist", cascade= CascadeType.ALL, orphanRemoval=true)

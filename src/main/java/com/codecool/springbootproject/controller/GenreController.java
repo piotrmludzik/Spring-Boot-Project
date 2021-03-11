@@ -6,9 +6,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
+import javax.validation.Valid;
+import java.sql.SQLException;
 import java.util.List;
 
 @Slf4j
@@ -43,9 +46,20 @@ public class GenreController {
         return "deleteGenre";
     }
 
-    @GetMapping("/addGenre")
-    public String addGenre() {
+    @RequestMapping("/addGenre")
+    public ModelAndView addGenreForm() {
+        return new ModelAndView("addGenre", "genre", new Genre());
+    }
 
-        return "addGenre";
+    @RequestMapping(value="/addGenre", method= RequestMethod.POST)
+    public String handleGenreForm(@Valid @ModelAttribute("genre") Genre genre, BindingResult bindingResult) throws SQLException {
+        log.info("handleGenreForm called");
+        if(bindingResult.hasErrors()){
+            log.info("inside bindingResult.hasErrors()");
+            return "addSongForm";
+        }
+        genreService.addNewGenre(genre);
+        log.info("genre " + genre.getName() + " added. It has an id " + genre.getId());
+        return "genres";
     }
 }

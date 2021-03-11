@@ -37,6 +37,11 @@ public class GenreServiceImpl implements GenreService {
     }
 
     @Override
+    public void addNewGenre(Genre genre) {
+        genreRepository.save(genre);
+    }
+
+    @Override
     public long getGenreCount() {
         return genreRepository.count();
     }
